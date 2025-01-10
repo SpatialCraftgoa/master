@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%; padding: 0; margin: 0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, orientation=landscape">
+    <meta http-equiv="Permissions-Policy" content="accelerometer=*, deviceorientation=*, xr-spatial-tracking=*">
+
+    <title class="Geosensitive" id="Geosensitive"></title>
+     
+    
+    <link rel="stylesheet" href="node_modules/ol/ol.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/tooltip.css" />
+    <link rel="stylesheet" href="./styles/legend.css">
+  
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.86/Build/Cesium/Cesium.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+    <link id="x-icon" rel="icon" href="SpatialCraft-Color-Logomark.png" type="image/x-icon" />
+    <script>
+    
+      //defining the dynamic variables
+      const projectname=""
+      const imglocation=""
+      const companylogo="/SpatialCraft-Color-Logomark.png"
+      const centerpoint=""
+      const youtubelink=""
+      const threesixtylink="" 
+
+      // setting the variables tot he markup
+      $(document).ready(function() {
+            $("#Geosensitive").text(projectname);
+            $("#Title").text(projectname);
+            $("#Title_mob").text(projectname);
+           
+            //$(".svg").attr("src", imglocation);
+      
+            $("#youtube_vid").attr("src", youtubelink);
+            $("#threesixty_image").attr("src", threesixtylink);
+
+        });
+    
+// Define the toggleSidebar function
+function toggleSidebar() {
+    var sidebar = document.getElementById("mySidebar");
+    var map = document.getElementById("map");
+    var openBtn = document.getElementById("openSidebarBtn");
+    const title = $('#Title').html();
+    const sidebarTitle = $('#sidebar-Title');
+    const poweredBy = $('#poweredBy');
+    const poweredBymob = $('#poweredBymob');
+
+    if ($('body').width() <= 600)  {
+        // Mobile view
+        if (sidebar.style.width === "75%") {
+            sidebar.style.width = "0";
+            map.style.marginLeft = "0";
+            openBtn.style.display = "block";
+            poweredBy.css('display', 'block');
+            poweredBymob.css('display', 'none');
+        } else {
+            sidebar.style.width = "75%";
+            map.style.marginLeft = "75%";
+            openBtn.style.display = "none";
+            sidebarTitle.html(title).css('font-size', '25px');
+            poweredBy.css('display', 'none');
+            poweredBymob.css('display', 'block');
+        }
+    } else {
+        // Desktop view
+        if (sidebar.style.width === "30%") {
+            sidebar.style.width = "0";
+            map.style.marginLeft = "0";
+            openBtn.style.display = "block";
+        } else {
+            sidebar.style.width = "30%";
+            map.style.marginLeft = "30%";
+            openBtn.style.display = "none";
+            sidebarTitle.html(title).css('font-size', '35px');
+        }
+    }
+}
+
+// Add event listener for the button
+document.getElementById("toggleSidebarBtn").addEventListener("click", toggleSidebar);
+
+      
+
+
+
+
+    </script>
+  </head>
+
+  <body
+    style="width: 100%; padding: 0; margin: 0; background-color: rgb(2, 24, 2)"
+  >
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="navbar_l">
+        <!--<img class="svg" id="" src="./images/logo1.jpg" alt="" />
+        <img class="svg" id="" src="./images/logo2.jpg" alt="" />-->
+
+        <a href="#">
+          <div class="Title" id="Title"></div>
+        </a>
+      </div>
+      
+
+      <div class="navbar_r">
+        <!--<a href="#">
+          <div class="Geosensitive" id="Geosensitive_link">GeoSensitive</div>
+        </a>-->
+        <img id="logo_geo" class="LogoGeo31" src="./SpatialCraft-Color-Logomark.png" />
+      </div>
+    </div>
+
+    <!--Mobile navbar -->
+    
+    <div class="navbar_m">
+        <div class="navbar_l">
+          <!--<img class="svg" id="" src="./images/logo1.jpg" alt="" />
+          <img class="svg" id="" src="./images/logo2.jpg" alt="" />-->
+  
+          <a href="#">
+            <div class="Title" id="Title_mob"></div>
+          </a>
+         
+          <!--<a href="#"> <div class="Geosensitive" id="Geosensitive_link_mob">GeoSensitive</div>  </a>-->
+        
+          <img id="logo_geo_mob" class="LogoGeo31" src="./SpatialCraft-Color-Logomark.png" />
+        </div>
+
+        
+  
+        <div class="navbar_r">
+
+          
+
+
+        </div>
+      </div>
+    </div>
+
+   
+    <!-- Map -->
+    <div id="map">
+      <!--Powered by Geosensitive-->
+      <div id="poweredBy">Powered by <a href="https://spatialcraft.in/'" target="_blank" style="color: blue;">SpatialCraft
+        <br><a  style="color: black;" href="tel:9588475585">Contact Us</a>
+
+      </a></div>
+    </div>
+   
+
+    
+  
+
+      <!--Legend -->
+      <img id="legend" src="./maplegend.png" alt=""  >
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+   
+      <div class="Sidebar-content">
+        <button
+        class="ol-popup-closer"
+        id="sidebar-closer"
+        onclick="toggleSidebar()"
+      ></button><br>
+        <div id="sidebar-Title"></div>
+       <p id="sidebar-info">
+       
+       
+        <br>
+          <span style="font-size: large;"><br>
+            
+            </span>
+
+           
+             .
+            
+            <!--<table id="highlights-table" style="color: white;">
+              
+               
+                
+              <span style="font-size: large;"><br>
+                Strategic Location:
+                </span>
+                <tr>
+                  <th>Landmark</th>
+                  <th>Distance (km)</th>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Dabolim International Airport">Dabolim International Airport</td>
+                  <td>13</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Panjim">Panjim</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Mopa International Airport">Mopa International Airport</td>
+                  <td>54</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Margao">Margao</td>
+                  <td>14</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Velsao Beach">Velsao Beach</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Planet Hollywood Goa">Planet Hollywood Beach Resort</td>
+                  <td>13</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Mormugao Port">Mormugao Port</td>
+                  <td>21</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Verna Industrial Estate">Verna Industrial Estate</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Park Hyatt Goa">ITC Grand Goa</td>
+                  <td>13</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="Mollem National Park">Mollem National Park</td>
+                  <td>35</td>
+                </tr>
+                <tr>
+                  <td class="landmark-location" data-name="15.1572318,73.9514578">St Regis Goa Resort</td>
+                  <td>15</td>
+                </tr>
+                
+                
+              </table>
+           
+             
+         
+        </p>
+        
+          <img class="sidebar_photo"  src="./images/1.jpg" alt=""><br>
+          <img  class="sidebar_photo"  src="./images/2.jpg" alt=""><br>
+          <img  class="sidebar_photo"  src="./images/3.jpg" alt=""><br>
+
+
+      -->
+
+        
+
+        <!-- Landmarks 
+
+        <div id="draggable2">
+          <div id="draggable-header2">
+            <div id="draggable-title2">Landmarks</div>
+          </div>
+          <div id="draggable-content2"></div>
+        </div>-->
+        <div style="display: none;color: green;font-size: 10px;" id="poweredBymob">Powered by <a href="https://spatialcraft.in/" target="_blank">SpatialCraft™</a></div>
+      </div>
+    </div>
+
+    <!-- Open Sidebar Button -->
+
+    <div id="openSidebarBtn" class="openbtn" onclick="toggleSidebar()">
+      &#8594;
+    </div>
+    
+    <!--Layer list-->
+    <div id="draggable">
+      <div id="draggable-header">
+        <div id="draggable-title">Layers</div>
+        <a href="#" id="draggable-closer" class="ol-popup-closer2"></a>
+      </div>
+      <div id="draggable-content"></div>
+    </div>
+
+    
+
+    <!-- Video Player-->
+    <div id="centeredContainer">
+      <div id="youtubevideodiv">
+        <iframe
+          id="youtube_vid"
+          src=""
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; 
+             gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <div class="ol-popup-closer" style="color: orange" id="closerBtn"></div>
+      </div>
+    </div> 
+
+   
+    <!--Container to hold tour-->
+    <div id="centeredContainer2">
+      <div id="threesixty_div">
+        <iframe  id="threesixty_image" src="" width="600" height="450" style="border:0;" allowfullscreen="" 
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="ol-popup-closer" id="closerBtn2"></div>
+      </div>
+    </div>
+
+    
+
+
+
+    <!-- YouTube Tooltip -->
+    <div class="tooltip" id="youtube-tooltip">
+      <div id="youtube-icon" class="fa-brands fa-youtube"></div>
+      <span class="tooltiptext">Aerial Video</span>
+    </div>
+    
+
+    <!-- 360 Image Popup Tooltip -->
+    <div class="tooltip" id="img360-tooltip">
+      <div id="img360">
+        <img id="pic" src="/images/360icon.png" alt="" />
+      </div>
+      <span class="tooltiptext">360 Image </span>
+    </div>
+
+    <!-- Geolocation Tooltip -->
+    <div class="tooltip" id="geolocation-tooltip">
+      <a href="#">
+        <button id="my-location-button" class="my-location-button">
+          <img
+            id="beforelocator"
+            src="/images/png-transparent-computer-icons-google-maps-location-navigational-map-location-geolocation-removebg-preview.png"
+            alt="My Location"
+          />
+        </button>
+      </a>
+      <span class="tooltiptext">Find your Location</span>
+    </div>
+     <!-- Base layer Tooltip -->
+     <div class="tooltip" id="mapswitcher-tooltip">
+      <a href="#">
+        <div id="map-switcher" class="map-switcher">
+          <img id="osm" src="./images/Openstreetmap_logo.svg.png"  alt="">
+          <img id="gsm" src="./images/Google_Maps_icon_(2020).svg.png"  alt="">
+        </div>
+      </a>
+      <span id="tooltips" class="tooltiptext"></span>
+    </div>
+      <!-- 3d Image Popup Tooltip -->
+      <div class="tooltip" id="3d-tooltip" style="cursor: pointer;">
+        <div id="3d">
+          <img id="threed" src="./images/icon-3d-11.jpg" alt="" />
+        </div>
+        <span class="tooltiptext">3D/2D </span>
+      </div>
+
+    <!--<div class="tooltip" id="measure-tooltip">
+      
+        <img src="./images/measure.png" alt="Measure Tool">
+     
+      
+        
+    </div>-->
+    
+    <!--<input type="range" id="opacitySlider" min="0" max="100" value="100" />
+    
+    
+     
+
+    <form id="measure">
+      <label for="type">Measurement type &nbsp;</label>
+      <select id="type">
+        <option value="length">Length (LineString)</option>
+        <option value="area">Area (Polygon)</option>
+        <option value="clear">Clear</option>
+      </select>
+    </form>
+-->
+    <!-- Popup div 
+    <div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content">
+        <div id="info"></div>
+        <div id="no-feature"></div>
+      </div>
+    </div>-->
+
+    
+
+    <!--Export-->
+
+    <!--<form id="export" action="">
+        <button id="btn" type="submit" class="form-control export_position" >Export</button>
+    </form>-->
+
+    <script type="module" src="./scripts/Map.js"></script>
+ 
+    <script type="module" src="./scripts/search.js"></script>
+    <script type="module" src="./scripts/globalsearch.js"></script>
+    <!-- <script type="module" src="./scripts/coordiante.js"></script> -->
+    <!--<script type="module" src="./scripts/identify.js"></script>-->
+  <script type="module" src="./scripts/Layers.js"></script>
+    <script type="module" src="./scripts/autozoom.js"></script>
+    <script type="module" src="./scripts/youtubevid.js"></script>
+    <!--<script type="module" src="./scripts/customFunctions.js"></script>
+    <script type="module" src="./scripts/Landmarks.js"></script>-->
+    <script type="module" src="/scripts/geolocation.js"></script>
+    <script type="module" src="./scripts/image360.js"></script>
+    <script type="module" src="./scripts/baselayerswitcher.js"></script>
+    <!--<script type="module" src="./scripts/measure.js"></script>
+    <script type="module" src="./scripts/slider.js"></script>-->
+    <script type="module" src="./scripts/landmarkzoom.js"></script>
+  <!--<script type="module" src="./scripts/video.js"></script>-->
+    <script type="module" src="./scripts/3d.js"></script>
+    <script type="module" src="./scripts/getgraphicinfo.js"></script>
+  </body>
+</html>
