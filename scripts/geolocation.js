@@ -4,14 +4,16 @@ import Feature from 'ol/Feature.js';
 import Geolocation from 'ol/Geolocation.js';
 import Point from 'ol/geom/Point.js';
 import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style.js';
-import Projection from 'ol/proj/Projection';
+import proj4 from 'proj4';
+import { register } from 'ol/proj/proj4';
+import { get as getProjection } from 'ol/proj';
 
-const mapProjection2 = new Projection({
-  code: 'EPSG:3857',
-  units: 'm',
-  axisOrientation: 'neu',
-  global: false,
-});
+// Define the EPSG:32643 projection using proj4
+proj4.defs('EPSG:32643', '+proj=utm +zone=43 +datum=WGS84 +units=m +no_defs');
+register(proj4);
+
+// Get the projection
+const mapProjection2 = getProjection('EPSG:32643');;
 
 const map = $('#map').data('map');
 const vectorSource = new VectorSource();
