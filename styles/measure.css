@@ -1,0 +1,100 @@
+.measure-btn {
+    position: fixed;
+    right: 120px;
+    top: 90%;
+    transform: translateY(-50%);
+    padding: 10px;
+    font-size: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.measure-btn:hover {
+    background: #0056b3;
+}
+
+/* Style for Measurement Form */
+#measureFormUnique456 {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 9px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    
+}
+
+/* Initially Hidden */
+.hidden {
+    display: none;
+}
+
+.ol-tooltip {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    color: white;
+    padding: 4px 8px;
+    opacity: 0.7;
+    white-space: nowrap;
+    font-size: 12px;
+    cursor: default;
+    user-select: none;
+}
+
+.ol-tooltip-measure {
+    opacity: 1;
+    font-weight: bold;
+}
+
+.ol-tooltip-static {
+    background-color: #ffcc33;
+    color: black;
+    border: 1px solid white;
+}
+
+.ol-tooltip-measure:before,
+.ol-tooltip-static:before {
+    border-top: 6px solid rgba(0, 0, 0, 0.5);
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    margin-left: -7px;
+    left: 50%;
+}
+
+.ol-tooltip-static:before {
+    border-top-color: #ffcc33;
+}
+
+@media only screen and (max-width: 600px) {
+    .measure-btn {
+        position: fixed;
+        right: 55px;
+        top: 90%;
+        transform: translateY(-50%);
+        padding: 10px;
+        font-size: 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    #measureFormUnique456 {
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: 35%; /* or even 80% if you want */
+        top: 11%; /* better on small screen */
+        transform: none; /* Remove translateY */
+    }
+}

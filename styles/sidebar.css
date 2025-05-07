@@ -1,0 +1,189 @@
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 5;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.1s ease-out;
+    padding-top: 0px;
+}
+.landmark-location{
+    cursor: pointer;
+  }
+.Sidebar-content {
+    height: calc(100% - 140px); /* Adjust height to account for additional padding and closer button top spacing */
+    padding: 20px;
+    overflow-y: auto; /* Enables vertical scrolling if content overflows */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+#sidebar-closer {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    z-index: 10; /* Ensure it stays on top */
+    cursor: pointer;
+}
+
+#sidebar-Title {
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 50px;
+    text-align: center;
+    cursor: default;
+}
+
+.sidebar_photo {
+    width: 400px;
+}
+
+#draggable,
+#draggable2 {
+    position: relative;
+    margin-bottom: 70px; /* Adjust the spacing between draggable elements */
+    border-bottom: 1px solid #555; /* Add a border between draggable elements */
+}
+
+#draggable-header,
+#draggable-header2 {
+    background-color: #9ba5ab;
+    padding: 10px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#draggable-content,
+#draggable-content2 {
+    padding: 10px;
+    color: white;
+}
+
+.openbtn {
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #111;
+    color: gold;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#sidebar-info{
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    line-height: 1.6;
+}
+#highlights-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  #highlights-table th, #highlights-table td {
+    padding: 8px 20px; /* Adds gap between columns */
+    text-align: left;
+  }
+
+  #highlights-table th {
+    font-weight: bold;
+  }
+@media only screen and (max-width: 600px) {
+    #draggable,
+    #draggable2 {
+        position: relative;
+        margin-bottom: 30px; /* Adjust the spacing between draggable elements */
+        border-bottom: 1px solid #555; /* Add a border between draggable elements */
+    }
+    
+    #draggable-header,
+    #draggable-header2 {
+        background-color: #9ba5ab;
+        padding: 5px;
+        color: white;
+      
+    }
+    
+    #draggable-content,
+    #draggable-content2 {
+        padding: 5px;
+        color: white;
+        font-size: 11px;
+    }
+    
+    .openbtn {
+        font-size: 15px;
+        cursor: pointer;
+        background-color: #111;
+        color: gold;
+        padding: 10px 15px;
+        border: none;
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+    
+    .openbtn:hover {
+        background-color: #444;
+    }
+    #sidebar-closer{
+        position: absolute;
+        top: 25px;
+        right: 5px;
+        z-index: 10; /* Ensure it stays on top */
+        cursor: pointer;
+    }
+    .sidebar_photo{
+        height: 130px;
+        width:225px ;
+    }
+    .Sidebar-content {
+        height: calc(100% - 180px); /* Adjust height to account for additional padding and closer button top spacing */
+        padding: 20px;
+        overflow-y: auto; /* Enables vertical scrolling if content overflows */
+        overflow-x: hidden; /* Prevents horizontal scrolling */
+        
+    }
+#sidebar-info{
+    color: aliceblue;font-family: 'Times New Roman', Times, serif;
+    font-size: small;
+}
+#highlights-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    font: smaller;
+  }
+
+  #highlights-table th, #highlights-table td {
+    padding: 4px 10px; /* Adds gap between columns */
+    text-align: left;
+    font: 6px;
+  }
+
+  #highlights-table th {
+    font-weight: bold;
+  }
+  #sidebar_img1 {
+    height: 300px;
+    width: 225px;
+   
+}
+
+
+
+}
+   
