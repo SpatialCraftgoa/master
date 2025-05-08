@@ -46,7 +46,7 @@ const mapProjection2 = getProjection('EPSG:32643');
 
 const ortholayer = new TileLayer({
     source: new TileWMS({
-        url: 'https://reservemyplot.com/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/cola/cola.qgs&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic&LAYER=colatif&FORMAT=image/png&STYLE=default',
+        url: '',
     }),
     opacity: 1,
     name: 'Map',
@@ -56,22 +56,16 @@ const ortholayer = new TileLayer({
   
 
 
-const surveyplan = new ImageLayer({
+const vectorlayer = new ImageLayer({
     source: new ImageWMS({
-        url: 'https://reservemyplot.com/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/cola/cola.qgs&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic&LAYER=plotbounds&FORMAT=image/png&STYLE=default',  // <-- This should be inside an object
+        url: '',  
     }),
     visible: true,
-    name: "Govt. Survey Plan",
+    name: "",
 });
 
 
-const physicalbounds = new ImageLayer({
-    source: new ImageWMS({
-        url: 'https://reservemyplot.com/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/cola/cola.qgs&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic&LAYER=physcialbounds&FORMAT=image/png&STYLE=default',  // <-- This should be inside an object
-    }),
-    visible: true,
-    name: "Physical Survey Boundary",
-});
+
 
 // View configuration
 const centerCoordinates = centerpoint.split(',').map(parseFloat);
